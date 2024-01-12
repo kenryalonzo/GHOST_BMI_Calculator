@@ -1,0 +1,113 @@
+
+<LoginPage>:
+    canvas.before:
+        Color:
+            rgb: hex(bleu)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    orientation: "vertical"
+    BoxLayout:
+        size_hint: 1, 0.1
+        Button:
+            canvas.before:
+                Color:
+                    rgba:  0, 0, 0, 0.75
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            text: "Home"
+            size_hint: 0.1, 1
+            pos_hint: {"top": 1}
+            background_normal: "images/button_background.png"
+            on_press: app.manage.transition.direction:"left";app.manage.current = "home"
+        Label:
+            canvas.before:
+                Color:
+                    rgba:  0, 0, 0, 0.75
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            pos_hint: {"top": 1}
+            text: "Sign in to continue..."
+            font_size: extra
+            font_name: acme
+    FloatLayout:
+        orientation: "horizontal"
+        Image:
+            source: "images/docteur_2.png"
+            pos_hint: {"x":0}
+            size_hint: 0.5, 1
+        FloatLayout:
+            size_hint: None, None
+            size: dp(285), dp(275)
+            pos_hint: {"x":0.6, "center_y":0.5}
+            canvas.before: 
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: dp(20), dp(20)
+            BoxLayout:
+                orientation: "vertical"
+                pos_hint: {"center_x":0.5, "center_y":0.5}
+                spacing: dp(35)
+                padding: dp(10), dp(30)
+                BoxLayout:
+                    orientation:"vertical"
+                    spacing: dp(10)
+                    BoxLayout:
+                        orientation:"horizontal"
+                        Label:
+                            text: "Username"
+                            color: 0, 0, 0
+                            font_size: medium
+                            font_name: acme
+                            text_size: self.size
+                            halign: "left"
+                            valign: "middle"
+                        TextInput:
+                            id: pseudo
+                            multiline: False   
+                            size_hint: 1, 0.5
+                            pos_hint: {"center_y": 0.5} 
+                            write_tab: False
+                    BoxLayout:
+                        orientation:"horizontal"
+                        Label:
+                            text: "Password"
+                            color: 0, 0, 0
+                            font_size: medium
+                            font_name: acme
+                            text_size: self.size
+                            halign: "left"
+                            valign: "middle"
+                        TextInput:
+                            id: password
+                            multiline: False 
+                            size_hint: 1, 0.5 
+                            pos_hint: {"center_y": 0.5}                      
+                            write_tab: False
+                            password: True
+                Button:
+                    text:"Login"
+                    font_size: medium
+                    font_name: amble_italic
+                    size_hint: 0.9, 0.3
+                    pos_hint: {"center_x": 0.5}
+                    background_normal: "images/button_background.png"
+                    on_press: app.manage.check_credentials(pseudo.text, password.text); root.check_session(footer)#app.manage.current_state="login"
+    Label: 
+        canvas.before:
+            Color:
+                rgb: 1, 0, 0
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        text: root.msg
+        size_hint: 1, 0.07
+        id: footer
+        font_size: medium
+        font_name: acme
+        opacity: 0
+
+    

@@ -1,0 +1,40 @@
+{"_default":
+    {
+
+        "1":{
+            "id": 0, 
+            "maladie": "poid normal", 
+            "reason": "Vous prenez soin de votre ligne", 
+            "conseil": "Continuer comme ca"
+        }, 
+        "2":{
+            "id": 1, 
+            "maladie": "sous-poid", 
+            "reason": "sous-alimentation", 
+            "conseil": "plus d'alimentation"
+        }, 
+        "3":{
+            "id": 2, 
+            "maladie":"surpoid", 
+            "reason": "Mauvaise alimentation", "conseil": "Consomm\u00e9 moins gras, Faite un peut de sport, pratqu\u00e9 le jeune intermittant"
+        }, 
+        "4":{
+            "id": 3, 
+            "maladie": "Obesit\u00e9", 
+            "reason": "Mauvaise alimentation, manque d'activit\u00e9 physique", 
+            "conseil": "Consomm\u00e9 moins gras, Faite un peut de sport, pratiqu\u00e9 le jeune intermittant"
+        }, 
+        "5":{
+            "id": 4, 
+            "maladie": "Obesit\u00e9 s\u00e9v\u00e8re", 
+            "reason": "Mauvaise alimentation, manque d'activit\u00e9 physique", 
+            "conseil": "Consomm\u00e9 moins gras, Faite un peut de sport, pratiqu\u00e9 le jeune intermittant, demand\u00e9 un suivie par un nutritioniste"
+        }, 
+        "6":{
+            "id": 5, 
+            "maladie": "Obesit\u00e9 morbide", 
+            "reason": "Mauvaise alimentation, manque d'activit\u00e9 physique", 
+            "conseil": "Consomm\u00e9 moins gras, Faite un peut de sport, pratiqu\u00e9 le jeune intermittant, songez a une intervention bariatrique"
+        }
+    }
+}

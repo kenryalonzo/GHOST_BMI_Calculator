@@ -1,0 +1,56 @@
+
+<HomeInterface>:
+    canvas.before:
+        Color:
+            rgb: hex(bleu)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    orientation: "vertical"
+    Label:
+        canvas.before:
+            Color:
+                rgba:  0, 0, 0, 0.75
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        text: "Welcome to the GHOST BMI Calculator"
+        size_hint: 1, 0.1
+        font_size: extra
+        font_name: acme
+    FloatLayout:
+        orientation: "horizontal"
+        Image:
+            source: "images/docteur_2.png"
+            pos_hint: {"x":0}
+            size_hint: 0.5, 1
+        FloatLayout:
+            size_hint: None, None
+            size: dp(285), dp(275)
+            pos_hint: {"x":0.6, "center_y":0.5}
+            canvas.before: 
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: dp(20), dp(20)
+            BoxLayout:
+                orientation: "vertical"
+                pos_hint: {"center_x":0.5, "center_y":0.5}
+                spacing: dp(40)
+                padding: dp(15), dp(55)
+                Button:
+                    text:"Sign In"
+                    font_size: medium
+                    font_name: amble_italic
+                    size_hint: 0.9, 0.3
+                    pos_hint: {"center_x": 0.5}
+                    background_normal: "images/button_background.png"
+                    on_press: app.manage.transition.direction="left";app.manage.current="login"
+                Button:
+                    text:"Sign Up"
+                    font_size: medium
+                    font_name: amble_italic
+                    size_hint: 0.9, 0.3
+                    pos_hint: {"center_x": 0.5}
+                    background_normal: "images/button_background.png"
+                    on_press: app.manage.transition.direction="left";app.manage.current="sign up"

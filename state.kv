@@ -1,0 +1,93 @@
+
+<State>:
+    orientation: "vertical"
+    canvas.before:
+        Color:
+            rgb: hex(bleu)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        size_hint: 1, 0.1
+        Button:
+            canvas.before:
+                Color:
+                    rgba:  0, 0, 0, 0.75
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            text: "Home"
+            size_hint: 0.1, 1
+            pos_hint: {"top": 1}
+            background_normal: "images/button_background.png"
+            on_press: app.manage.transition.direction:"left";app.manage.current = "index"
+        Label:
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 0.5
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            text: "Check your Health Status..."
+            font_size: extra
+            font_name: acme
+        
+        Button:
+            canvas.before:
+                Color:
+                    rgba:  0, 0, 0, 0.75
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            text: "Logout"
+            size_hint: 0.1, 1
+            pos_hint: {"top": 1}
+            background_normal: "images/button_background.png"
+            on_press: app.manage.transition.direction:"right";app.manage.logout_user()
+    FloatLayout:
+        Image:
+            source: "images/linda.png"
+            size_hint: 0.5, 1
+        BoxLayout:
+            orientation:"vertical"
+            size_hint: 0.3, 0.4
+            pos_hint: {"center_x": 0.60, "center_y": 0.70}
+            spacing: dp(10)
+            Label:
+                text: "According to the analyzes"
+                font_name: amble_regular
+                font_size: medium
+            #     size_hint: None, None
+            #     size: dp(550), dp(200)
+                pos_hint: {"center_x":0.48, "center_y":0.75}
+                text_size: self.size
+                size_hint: None, None
+                size: dp(265), dp(70)
+                valign: "middle"
+                halign: "left"
+            #     pos_hint: {"center_x": 0.65, "center_y": 0.75}
+            Label:
+                text: "Status: "+root.status
+                font_name: amble_regular
+                font_size: middle
+                text_size: self.size
+                halign: "left"
+                valign: "middle"
+            Label:
+                text: "Cause: "+root.cause
+                font_name: amble_regular
+                font_size: middle
+                text_size: self.size
+                halign: "left"
+                valign: "middle"
+                size_hint: None, 1
+                width: dp(425)
+            Label:
+                text: "Advice: "+root.conseil
+                font_name: amble_regular
+                font_size: middle
+                text_size: self.size
+                halign: "left"
+                valign: "middle"
+                size_hint: None, 1
+                width: dp(425)

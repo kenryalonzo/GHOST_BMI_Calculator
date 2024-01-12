@@ -1,0 +1,75 @@
+
+
+<ConsultBmi>:
+    orientation: "vertical"
+    canvas.before:
+        Color:
+            rgb: hex(bleu)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        size_hint: 1, 0.1
+        Button:
+            canvas.before:
+                Color:
+                    rgba:  0, 0, 0, 0.75
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            text: "Home"
+            size_hint: 0.1, 1
+            pos_hint: {"top": 1}
+            background_normal: "images/button_background.png"
+            on_press: app.manage.transition.direction:"left";app.manage.current = "index"
+        Label:
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 0.5
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            text: "Your BMI..."
+            font_size: extra
+            font_name: acme
+        
+        Button:
+            canvas.before:
+                Color:
+                    rgba:  0, 0, 0, 0.75
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            text: "Logout"
+            size_hint: 0.1, 1
+            pos_hint: {"top": 1}
+            background_normal: "images/button_background.png"
+            on_press: app.manage.transition.direction:"right";app.manage.logout_user()
+    FloatLayout:
+        Image:
+            source: "images/linda.png"
+            size_hint: 0.5, 1
+        Label:
+            text: "The Body Mass Index is a value defined by the World Health Organization to assess the corpulence of an individual and therefore the possible risks to their health."
+            font_name: amble_regular
+            font_size: medium
+            size_hint: None, None
+            size: dp(550), dp(200)
+            text_size: self.size
+            halign: "center"
+            valign: "middle"
+            pos_hint: {"center_x": 0.65, "center_y": 0.75}
+        BoxLayout:
+            orientation:"horizontal"
+            size_hint: 0.2, 0.07
+            pos_hint: {"center_x": 0.7, "center_y": 0.45}
+            Label:
+                text: "BMI"
+                font_name: amble_regular
+                font_size: medium
+            TextInput:
+                readonly: True
+                id: imc
+                text: root.imc
+                font_name: acme
+                font_size: medium

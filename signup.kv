@@ -1,0 +1,196 @@
+
+<SignUpPage>:
+    orientation: "vertical"
+    canvas.before:
+        Color:
+            rgb: hex(bleu)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        size_hint: 1, 0.1
+        Button:
+            canvas.before:
+                Color:
+                    rgba:  0, 0, 0, 0.75
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            text: "Home"
+            size_hint: 0.1, 1
+            pos_hint: {"top": 1}
+            background_normal: "images/button_background.png"
+            on_press: app.manage.transition.direction:"left";app.manage.current = "home"
+        Label:
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 0.75
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            text: "Create an Account..."
+            font_size: extra
+            font_name: acme
+    FloatLayout:
+        orientation: "horizontal"
+        Image:
+            source: "images/docteur_2.png"
+            size_hint: 0.5, 1
+            pos_hint: {"center_y": 0.53}
+        FloatLayout:
+            orientation: "vertical"
+            canvas.before:
+                Color:
+                    rgb: hex(blanc)
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: radius_, radius_
+            size_hint: 0.9, 0.9
+            pos_hint: {"center_x": 0.5, "center_y": 0.47}
+            BoxLayout:
+                orientation:"vertical"
+                pos_hint: {"center_x": 0.5, "center_y": 0.60}
+                spacing: dp(60)
+                padding: dp(15), dp(70)
+                BoxLayout:
+                    orientation:"horizontal"
+                    size_hint: 0.5, 0.07
+                    pos_hint: {"center_x":0.5, "top":0.95}
+                    spacing: dp(10)
+                    Label:
+                        text: "Username"
+                        color: 0, 0, 0 
+                        font_size: medium
+                        font_name: amble_italic
+                        text_size: self.size
+                        valign: "middle"
+                        halign: "right"
+                    TextInput:
+                        id: username
+                        hint_text: "Username"
+                        font_name: amble_regular
+                        font_size: medium
+                        text_size: self.size
+                        halign: "center"
+                        valign: "middle"
+                        multiline: False
+                        write_tab: False
+                BoxLayout:
+                    orientation:"horizontal"
+                    size_hint: 1, 0.07
+                    spacing: dp(10)
+                    # pos_hint: {"center_x": 0.5, "top": 0.8}
+                    TextInput:
+                        id: nameAndSurname
+                        hint_text: "Name & Surname"
+                        font_name: amble_regular
+                        font_size: medium
+                        text_size: self.size
+                        halign: "center"
+                        valign: "middle"
+                        multiline: False
+                        write_tab: False
+                    TextInput:
+                        id: age
+                        hint_text: "Age"
+                        font_name: amble_regular
+                        font_size: medium
+                        text_size: self.size
+                        halign: "center"
+                        valign: "middle"
+                        multiline: False
+                        write_tab: False
+                    Spinner:
+                        id: sexe
+                        text: "Sex"
+                        font_name: amble_regular
+                        font_size: medium
+                        text_size: self.size
+                        halign: "center"
+                        valign: "middle"
+                        multiline: False
+                        write_tab: False
+                        values: "Man", "Women"
+                        background_normal: "images/button_background.png"
+                    TextInput:
+                        id: work
+                        hint_text: "Work"
+                        font_name: amble_regular
+                        font_size: medium
+                        text_size: self.size
+                        halign: "center"
+                        valign: "middle"
+                        multiline: False
+                        write_tab: False
+                BoxLayout:
+                    size_hint: 1, 0.07
+                    spacing: dp(10)
+                    orientation:"horizontal"
+                    TextInput:
+                        id: taille
+                        hint_text: "Size(Cm)"
+                        font_name: amble_regular
+                        font_size: medium
+                        text_size: self.size
+                        halign: "center"
+                        valign: "middle"
+                        multiline: False
+                        write_tab: False
+                    TextInput:
+                        id: weight
+                        hint_text: "Weight(Kg)"
+                        font_name: amble_regular
+                        font_size: medium
+                        text_size: self.size
+                        halign: "center"
+                        valign: "middle"
+                        multiline: False
+                        write_tab: False
+                BoxLayout:
+                    size_hint: 1, 0.07
+                    spacing: dp(10)
+                    orientation:"horizontal"
+                    TextInput:
+                        id: password
+                        hint_text: "Password"
+                        font_name: amble_regular
+                        font_size: medium
+                        text_size: self.size
+                        halign: "center"
+                        valign: "middle"
+                        multiline: False
+                        write_tab: False
+                        password: True
+                    TextInput:
+                        id: password_repeat
+                        hint_text: "Password_repeat"
+                        font_name: amble_regular
+                        font_size: medium
+                        text_size: self.size
+                        halign: "center"
+                        valign: "middle"
+                        multiline: False
+                        write_tab: False
+                        password: True
+            Button:
+                text: "Sign Up"
+                background_normal: "images/button_background.png"
+                size_hint: 0.4, 0.09
+                pos_hint: {"right": 0.98, "y": 0.04}
+                font_size: medium
+                font_name: acme
+                on_press: app.manage.check_signup(username.text, password.text, password_repeat.text, nameAndSurname.text, age.text, sexe.text, taille.text, weight.text, work.text);root.check_pseudo(footer)
+    Label:
+        canvas.before:
+            Color:
+                rgb: 1, 0, 0
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        text: "This nickname already exists Or the passwords do not match"
+        id: footer
+        opacity: 0
+        font_name: acme
+        font_size: medium
+        size_hint: 1, 0.07

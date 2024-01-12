@@ -1,0 +1,52 @@
+
+#: import hex kivy.utils.get_color_from_hex
+#: set bleu "#46ADF8"
+#: set blanc "#f1f1f1"
+#: set small dp(12)
+#: set middle dp(20)
+#: set medium dp(24)
+#: set extra dp(36)
+#: set acme "fonts/Acme.ttf"
+#: set amble_regular "fonts/amble/Regular.ttf"
+#: set amble_italic "fonts/amble/Italic.ttf"
+#: set radius_ dp(20)
+
+#: import home_interface home_interface
+#: import loginpage loginpage
+#: import signup signup
+#: import index_page index_page
+#: import update_page update_page
+#: import consult consult
+#: import state state
+
+# State:
+
+<ScreenBrowser>:
+    Screen:
+        name:"home"
+        HomeInterface:
+    Screen:
+        name:"login"
+        LoginPage:
+    Screen:
+        name:"sign up"
+        SignUpPage:
+    Screen:
+        name:"index"
+        IndexPage:
+    Screen:
+        name:"update"
+        on_pre_enter: update_page.preload_data()
+        UpdatePage:
+            id: update_page
+    Screen:
+        name:"state"
+        on_pre_enter: status.preload_data()
+        State:
+            id: status
+    Screen:
+        name:"conultation"
+        on_pre_enter: imc.preload_data()
+        ConsultBmi:
+            id: imc
+
